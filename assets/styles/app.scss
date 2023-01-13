@@ -1,10 +1,87 @@
 @import "~bootstrap/scss/bootstrap";
 
 $backgroundColor: white;
+$firstColor: #5aff7a;
+$secondColor: #0d2329;
+$screen-sm-min: 400px;
+$screen-md-min: 740px;
+$screen-lg-min: 900px;
+$screen-xl-min: 1200px;
 
 body {
     background-color: $backgroundColor;
     h1 {
-        color: green;
+        color: $secondColor;
+    }
+    nav {
+        background-color: $secondColor;
+        padding: 0 !important;
+        div {
+            padding: 0 !important;
+        }
+        a {
+            color: white !important;
+        }
+        img {
+            width: 100px;
+            height: auto;
+        } 
+        .navbar-toggler {
+            border-color: white !important;
+            border-width: 4px !important;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+        }
+    }
+    footer {
+        background-color: $secondColor;
+        ul {
+            list-style: none;
+            margin: 0 !important;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }    
+}
+
+@mixin sm {
+    @media (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+ }
+ 
+ @mixin md {
+    @media (min-width: #{$screen-md-min}) {
+        @content;
+    }
+ }
+ 
+ @mixin lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+
+ @mixin xl {
+    @media (min-width: #{$screen-xl-min}) {
+        @content;
+    }
+ }
+
+ .responsive {
+    @include sm {
+        max-width: 100%;
+    }
+    @include md {
+        max-width: 100%;
+    }
+    @include lg {
+        max-width: 75%;
+    }
+    @include xl {
+        max-width: 50%;
     }
 }
