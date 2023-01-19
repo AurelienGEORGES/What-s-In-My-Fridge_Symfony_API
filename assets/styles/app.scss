@@ -1,6 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 $backgroundColor: white;
+$btn-backgroundColor: #123456;
 $firstColor: #5aff7a;
 $secondColor: #0d2329;
 $screen-sm-min: 400px;
@@ -10,77 +11,147 @@ $screen-xl-min: 1200px;
 
 body {
     background-color: $backgroundColor;
-    h1 {
+
+    h1,
+    label {
         color: $secondColor;
     }
+
+    button {
+        background-color: $btn-backgroundColor !important;
+        color: white !important;
+        font-weight: 700 !important;
+        font-size: x-large !important;
+    }
+
     nav {
         background-color: $secondColor;
         padding: 0 !important;
+
         div {
             padding: 0 !important;
         }
+
         a {
             color: white !important;
         }
+
         img {
             width: 100px;
             height: auto;
-        } 
+        }
+
         .navbar-toggler {
             border-color: white !important;
             border-width: 4px !important;
         }
+
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
         }
     }
+
     footer {
         background-color: $secondColor;
+
         ul {
             list-style: none;
             margin: 0 !important;
         }
+
         a {
             text-decoration: none;
             color: white;
         }
-    }    
+    }
+
+    #registration_form_username {
+        border-radius: 15px;
+        width: 100%;
+        margin: 10px 0px;
+        padding: 10px;
+        border: solid $secondColor 5px;
+    }
+
+    #registration_form_email {
+        border-radius: 15px;
+        width: 100%;
+        margin: 10px 0px;
+        padding: 10px;
+        border: solid $secondColor 5px;
+    }
+
+    #registration_form_plainPassword {
+        border-radius: 15px;
+        width: 100%;
+        margin: 10px 0px;
+        padding: 10px;
+        border: solid $secondColor 5px;
+    }
+
+    #registration_form_agreeTerms {
+        width: 30px;
+        height: 30px;
+        padding-right: 15px;
+        
+    }
+
+    #username {
+        border-radius: 15px;
+        width: 100%;
+        margin: 10px 0px;
+        padding: 10px;
+        border: solid $secondColor 5px;
+    }
+
+    #password {
+        border-radius: 15px;
+        width: 100%;
+        margin: 10px 0px;
+        padding: 10px;
+        border: solid $secondColor 5px;
+    }
 }
+
+
 
 @mixin sm {
     @media (min-width: #{$screen-sm-min}) {
         @content;
     }
- }
- 
- @mixin md {
+}
+
+@mixin md {
     @media (min-width: #{$screen-md-min}) {
         @content;
     }
- }
- 
- @mixin lg {
+}
+
+@mixin lg {
     @media (min-width: #{$screen-lg-min}) {
         @content;
     }
- }
+}
 
- @mixin xl {
+@mixin xl {
     @media (min-width: #{$screen-xl-min}) {
         @content;
     }
- }
+}
 
- .responsive {
+.responsive {
     @include sm {
         max-width: 100%;
     }
+
     @include md {
         max-width: 100%;
     }
+
     @include lg {
         max-width: 75%;
     }
+
     @include xl {
         max-width: 50%;
     }
