@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les recettes
+{% endblock %}
+
+{% block body %}
+
+	<section class="responsive container">
+		<div class="d-flex justify-content-center">
+			<h1 class="text-center my-3">Tu peux trouver ici des idées pour cuisiner des recettes à partir de ton frigo</h1>
+		</div>
+		<div class="d-flex justify-content-center">
+			<img class="img-fluid my-3 mx-3" src="{{ asset('images/logo-WIMF.jpg') }}" alt="trouve des recettes adaptées à ton frigo"/>
+		</div>
+	</section>
+
+	{% for result in APIrecettes.results %}
+
+		{% if result|length == 52 %}
+			<section class="responsive container">
+				<div class="card w-100 mb-3">
+					<div class="card-body">
+						<h5 class="card-title">{{ result.name|trans|raw }}</h5>
+                        <p class="card-text">{{ result.servings_noun_singular|trans|raw }}</p>
+                        <img src="{{ result.thumbnail_url }}" class="img-thumbnail">
+                        <p class="card-text">{{ result.description|trans|raw }}</p>
+                        {% for instruction in result.instructions %}
+                        <p class="card-text">{{ instruction.display_text|trans|raw }}</p>
+                        {% endfor %}
+                        {% for section in result.sections %}
+                        {% for component in section.components %}
+                        <p class="card-text" lang="en">{{ t(component.raw_text)|trans|raw }}</p>
+                        {% endfor %}
+                        {% endfor %}
+					</div>
+				</div>
+			</section>
+		{% endif %}
+
+	{% endfor %}
+
+{% endblock %}
