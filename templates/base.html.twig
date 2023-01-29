@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 	<head>
 
 		<meta charset="UTF-8">
 
 		<title>
-			{% block title %}Welcome!
+			{% block title %}Bienvenue!
 			{% endblock %}
 		</title>
 
@@ -43,7 +43,7 @@
 									<a class="nav-link" href="#">Mes Recettes</a>
 								</li>
 								<li class="nav-item mx-3 my-3 fw-bolder">
-									<a class="nav-link" href="#">Recherche Recettes</a>
+									<a class="nav-link" href="{{ path('app_recettes') }}">Recherche Recettes</a>
 								</li>
 								{% if is_granted('ROLE_USER') %}
 								<li class="nav-item mx-3 my-3 fw-bolder">
