@@ -21,8 +21,8 @@ class Apirecettes
             [
                 'query' => [
                     'from' => '0',
-                    'size' => '10',
-                    'q' => 'cake'
+                    'size' => '20',
+                    'q' => 'cheese'
                 ],
                 'headers' => [
                     'X-RapidAPI-Key' => '53d4f1ce79msh9c676adeb56147ap1cd1a0jsnb0105df3cd49',

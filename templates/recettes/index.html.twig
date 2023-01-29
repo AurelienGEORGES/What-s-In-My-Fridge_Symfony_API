@@ -16,20 +16,20 @@
 
 	{% for result in APIrecettes.results %}
 
-		{% if result|length == 52 %}
+		{% if result|length > 40 %}
 			<section class="responsive container">
 				<div class="card w-100 mb-3">
 					<div class="card-body">
-						<h5 class="card-title">{{ result.name|trans|raw }}</h5>
-                        <p class="card-text">{{ result.servings_noun_singular|trans|raw }}</p>
+						<h5 class="card-title">{{ result.name|trans({}, 'fr')|raw }}</h5>
+                        <p class="card-text">{{ result.servings_noun_singular|trans({}, 'fr')|raw }}</p>
                         <img src="{{ result.thumbnail_url }}" class="img-thumbnail">
-                        <p class="card-text">{{ result.description|trans|raw }}</p>
+                        <p class="card-text">{{ result.description|trans({}, 'fr')|raw }}</p>
                         {% for instruction in result.instructions %}
-                        <p class="card-text">{{ instruction.display_text|trans|raw }}</p>
+                        <p class="card-text">{{ instruction.display_text|trans({}, 'fr')|raw }}</p>
                         {% endfor %}
                         {% for section in result.sections %}
                         {% for component in section.components %}
-                        <p class="card-text" lang="en">{{ t(component.raw_text)|trans|raw }}</p>
+                        <p class="card-text">{{ t(component.raw_text)|trans({}, 'fr')|raw }}</p>
                         {% endfor %}
                         {% endfor %}
 					</div>
